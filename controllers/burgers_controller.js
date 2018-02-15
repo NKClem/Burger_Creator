@@ -4,34 +4,30 @@ const burger = require('../models/burger.js');
 const router = express.Router();
 
 router.get('/', function(req, res) {
-    let burgArr = [];
-
     burger.selectAll(function(data) {
-        for (let i = 0; i < data.length; i++) {
-            burgArr.push(data[i]);
-        }
-        console.log(burgArr);
-        res.render('index', burgArr);
+        let hbsObj = {
+            burgerData: data
+        };
+        res.render('index', hbsObj);
     });
 });
 
-router.post('/create', function(req, res) {
+router.post('/burgers', function(req, res) {
     burger.insertOne([
-        'burger_name', 'devoured'
+        'burger_name'
     ], [
-        req.body.name, 0
-    ], function(result) {
+        req.body.burger_name
+    ], function(data) {
         res.redirect('/');
     });
 });
 
 router.put('update/:id', function(req, res) {
-    burger.updateOne([
-        req.body.devoured
-    ],
-    [
-        req.params.id
-    ], function() {
+    let condition = 'id = ' + req.params.id;
+
+    burger.updateOne({
+        devoured: true
+    }, condition, function(data) {
         res.redirect('/');
     });
 });

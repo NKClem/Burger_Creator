@@ -6,12 +6,12 @@
     <div class="row">
         <div class="col-lg-6" id="burgerList">
             <ul>
-                {{#each burger}}
+                {{#each burgArr}}
                     {{#unless this.devoured}}
                         <div>
                             <p>
                                 {{this.id}}. {{this.burger_name}}
-                                <form action="update/{{this.id}}?_method=PUT" method="POST">
+                                <form action="/{{this.id}}?_method=PUT" method="POST">
                                     <button type="submit" class="updateBurg">{{this.burger_name}}</button>
                                 </form>
                             </p>
@@ -22,12 +22,12 @@
         </div>
         <div class="col-lg-6" id="devouredList">
             <ul>
-                {{#each burger}}
+                {{#each burgArr}}
                     {{#if this.devoured}}
                         <div>
                             <p>
                                 {{this.id}}. {{this.burger_name}}
-                                <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                                <form action="update/{{this.id}}?_method=DELETE" method="POST">
                                     <button type="submit">Remove</button>
                                 </form>
                             </p>
