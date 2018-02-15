@@ -8,16 +8,16 @@ const orm = {
             console.log(res);
         });
     },
-    insertOne: function(table, cols, newVals) {
-        let queryString = 'INSERT INTO ?? (??) VALUES ?, 0';
-        connection.query(queryString, [table, cols, newVals], function(err, res) {
+    insertOne: function(table, colName, newVals) {
+        let queryString = 'INSERT INTO ?? (??) VALUES ?';
+        connection.query(queryString, [table, colName, newVal], function(err, res) {
             if (err) throw err;
             console.log(res);
         });
     },
     updateOne: function(table, colName, colVal, id, idVal) {
         let queryString = 'UPDATE ?? SET ?? = ? WHERE ?? = ?';
-        connection.query(queryString, [table, colName, colVal, id, idVal], function(err, res) {
+        connection.query(queryString, ['burgers', colName, colVal, id, idVal], function(err, res) {
             if (err) throw err;
             console.log(res);
         });

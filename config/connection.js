@@ -1,11 +1,11 @@
 const mysql = require('mysql');
-const keys = require('./keys.js');
+const Key = require('./keys.js');
 
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: keys.key,
-    database: burgers_db
+    password: Key.key,
+    database: 'burgers_db'
 });
 
 connection.connect(function(err) {
