@@ -1,0 +1,49 @@
+<div class='container'>
+    <div class='jumbotron'>
+        <h1>Eat-Da-Burger</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6" id="burgerList">
+            <ul>
+                {{#each burger}}
+                    {{#unless this.devoured}}
+                        <div>
+                            <p>
+                                {{this.id}}. {{this.burger_name}}
+                                <form action="update/{{this.id}}?_method=PUT" method="POST">
+                                    <button type="submit" class="updateBurg">{{this.burger_name}}</button>
+                                </form>
+                            </p>
+                        </div>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-lg-6" id="devouredList">
+            <ul>
+                {{#each burger}}
+                    {{#if this.devoured}}
+                        <div>
+                            <p>
+                                {{this.id}}. {{this.burger_name}}
+                                <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </p>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="/create" method="POST">
+                <input type="text" id="newBurg" name="burger_name" placeholder="Create your own masterpiece burger!">
+                <button type="submit" id="createBurg">Add Your Masterpiece</button>
+            </form>
+        </div>
+    </div>
+</div>
+
