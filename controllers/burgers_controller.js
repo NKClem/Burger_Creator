@@ -31,4 +31,10 @@ router.put('/update/:id', function(req, res) {
     });
 });
 
+router.delete('/delete/:id', function(req, res) {
+    burger.deleteOne([req.params.id], function() {
+        res.redirect('/index');
+    });
+});
+
 module.exports = router;

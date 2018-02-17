@@ -2,10 +2,25 @@
     text-align: center;
 }
 
+.jumbotron {
+    background-color: white;
+    color: red;
+}
+
+#cuteBurger {
+    margin: 0 20px;
+}
+
 #updateBurg, #deleteBurg {
     margin-left: 20px;
+}
+
+#strikeSpan {
+    color: red;
+    text-decoration: line-through;
 }
 
 #burgerCreator {
     margin-top: 50px;
 }
+

@@ -1,6 +1,6 @@
 <div class='container'>
     <div class='jumbotron'>
-        <h1>Eat-Da-Burger</h1>
+         <h1><img id="cuteBurger" src="/assets/images/cute-burger.jpg">Eat. Dat. Burger!<img id="cuteBurger" src="/assets/images/cute-burger.jpg"></h1> 
     </div>
 
     <div class="row">
@@ -14,7 +14,7 @@
                                         <form class="form-inline" action="/update/{{this.id}}?_method=PUT" method="POST">
                                             <img src="/assets/images/burger-vector.jpg"> {{this.id}}. {{this.burger_name}}
                                                 <input type="hidden" name="devour" value="1">
-                                                    <button type="submit" id="updateBurg">Devour!</button>
+                                                    <button type="submit" class="btn-success" id="updateBurg">Devour!</button>
                                         </form>
                                     </p>
                                 </div>
@@ -29,9 +29,13 @@
                     {{#if this.devoured}}
                         <div>
                             <p>
-                                <form action="update/{{this.id}}?_method=DELETE" method="POST">
-                                    {{this.id}}. {{this.burger_name}}
-                                        <button type="submit" id="deleteBurg">Remove</button>
+                                <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                                    <img src="/assets/images/eaten-burger.jpg"> 
+                                        <span id="strikeSpan">
+                                            {{this.id}}. {{this.burger_name}}
+                                        </span>
+                                    
+                                        <button type="submit" class="btn-danger" id="deleteBurg">Remove</button>
                                 </form>
                             </p>
                         </div>
@@ -45,7 +49,7 @@
             <h4>What kind of burger would you like to add to the menu?</h4>
             <form action="/create" method="POST">
                 <input type="text" id="newBurg" name="burger_name" placeholder="Your Hamazing-Burger!">
-                    <button type="submit" id="createBurg">Add Your Masterpiece</button>
+                    <button type="submit" class="btn-success" id="createBurg">Add Your Masterpiece</button>
             </form>
             
         </div>

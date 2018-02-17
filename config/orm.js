@@ -27,6 +27,15 @@ const orm = {
             }
             cb(result);
         });
+    },
+    deleteOne: function(table, condition, conditionVal, cb) {
+        let queryString = 'DELETE FROM ' + table + ' WHERE ' + condition + '=?';
+        connection.query(queryString, [conditionVal], function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     }
 };
 
