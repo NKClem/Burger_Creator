@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const mysql = require('mysql');
 const Key = require('./keys.js');
 
@@ -7,10 +9,10 @@ if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createConnection({
-        root: Key.port,
-        host: 'localhost',
-        user: 'root',
-        password: Key.key,
+        root: 3000,
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
         database: 'burgers_db'
     });
 };
