@@ -1,0 +1,11 @@
+.container {
+    text-align: center;
+}
+
+#updateBurg, #deleteBurg {
+    margin-left: 20px;
+}
+
+#burgerCreator {
+    margin-top: 50px;
+}
