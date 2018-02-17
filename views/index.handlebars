@@ -8,39 +8,38 @@
             <h4>Burger Menu</h4>
                 <div id="burgerList">
                     {{#each burgers}}
-                            {{#unless this.devoured}}
-                                <div>
-                                    <p>
-                                        <form class="form-inline" action="/update/{{this.id}}?_method=PUT" method="POST">
-                                            <img src="/assets/images/burger-vector.jpg"> {{this.id}}. {{this.burger_name}}
-                                                <input type="hidden" name="devour" value="1">
-                                                    <button type="submit" class="btn-success" id="updateBurg">Devour!</button>
-                                        </form>
-                                    </p>
-                                </div>
-                            {{/unless}}
-                        {{/each}}
+                        {{#unless this.devoured}}
+                            <div>
+                                <p>
+                                    <form class="form-inline" action="/update/{{this.id}}?_method=PUT" method="POST">
+                                        <img src="/assets/images/burger-vector.jpg"> {{this.id}}. {{this.burger_name}}
+                                            <input type="hidden" name="devour" value="1">
+                                        <button type="submit" class="btn-success" id="updateBurg">Devour!</button>
+                                    </form>
+                                </p>
+                            </div>
+                        {{/unless}}
+                    {{/each}}
                 </div>
         </div>
         <div class="col-lg-6">
             <h4>Burgers Eaten</h4>
                 <div id="devouredList">
                     {{#each burgers}}
-                    {{#if this.devoured}}
-                        <div>
-                            <p>
-                                <form action="delete/{{this.id}}?_method=DELETE" method="POST">
-                                    <img src="/assets/images/eaten-burger.jpg"> 
-                                        <span id="strikeSpan">
-                                            {{this.id}}. {{this.burger_name}}
-                                        </span>
-                                    
+                        {{#if this.devoured}}
+                            <div>
+                                <p>
+                                    <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                                        <img src="/assets/images/eaten-burger.jpg"> 
+                                            <span id="strikeSpan">
+                                                {{this.id}}. {{this.burger_name}}
+                                            </span>
                                         <button type="submit" class="btn-danger" id="deleteBurg">Remove</button>
-                                </form>
-                            </p>
-                        </div>
-                    {{/if}}
-                {{/each}}
+                                    </form>
+                                </p>
+                            </div>
+                        {{/if}}
+                    {{/each}}
                 </div>
         </div>
     </div>

@@ -12,7 +12,6 @@ router.get('/index', function(req, res) {
         let burgerData = { 
             burgers: data 
         };
-        console.log(burgerData);
         
         res.render('index', burgerData);
     });
@@ -20,7 +19,6 @@ router.get('/index', function(req, res) {
 
 router.post('/create', function(req, res) {
     burger.insertOne([req.body.burger_name], function() {
-
         res.redirect('/index');
     });
 });
